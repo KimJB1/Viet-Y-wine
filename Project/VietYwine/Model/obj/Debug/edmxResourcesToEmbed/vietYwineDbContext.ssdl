@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VietYWineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="60" />
+    <Property Name="MetaKeyWord" Type="nvarchar" MaxLength="255" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="160" />
+    <Property Name="slug" Type="varchar" MaxLength="200" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="70" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="30" />
+    <Property Name="avatar" Type="nvarchar(max)" />
+    <Property Name="gender" Type="tinyint" />
+    <Property Name="birthday" Type="date" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="11" />
+    <Property Name="hobbies" Type="nvarchar" MaxLength="2000" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="passWord" Type="varchar" MaxLength="200" />
+    <Property Name="isAdministrator" Type="tinyint" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="avatar" Type="nvarchar(max)" />
+    <Property Name="category" Type="tinyint" />
+    <Property Name="summaryContent" Type="nvarchar" MaxLength="2000" />
+    <Property Name="mainContent" Type="ntext" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="60" />
+    <Property Name="MetaKeyWord" Type="nvarchar" MaxLength="255" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="160" />
+    <Property Name="slug" Type="varchar" MaxLength="600" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Producer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="300" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="11" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="website" Type="varchar" MaxLength="1000" />
+    <Property Name="avatar" Type="nvarchar(max)" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryID" Type="int" />
+    <Property Name="producerID" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="avatar" Type="nvarchar(max)" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MetaTitle" Type="nvarchar" MaxLength="60" />
+    <Property Name="MetaKeyWord" Type="nvarchar" MaxLength="255" />
+    <Property Name="MetaDescription" Type="nvarchar" MaxLength="160" />
+    <Property Name="slug" Type="varchar" MaxLength="300" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProductDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productID" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="11" />
+    <Property Name="map" Type="ntext" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="video" Type="ntext" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="ISDELETE" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="VietYWineModelStoreContainer">
+    <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producer" EntityType="Self.Producer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductDetail" EntityType="Self.ProductDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

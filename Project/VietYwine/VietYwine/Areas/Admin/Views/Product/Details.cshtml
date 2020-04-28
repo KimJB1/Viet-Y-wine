@@ -1,0 +1,180 @@
+﻿@model Model.Product
+
+@{
+    var lstCategories = ViewBag.dataCategory;
+    var lstProducers = ViewBag.dataProducer;
+}
+
+<div class="body">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <ul class="header-dropdown">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Product/_Index')">Danh sách</a></li>
+                                    <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Product/Edit',@Model.ID)">Sửa</a></li>
+                                    <li><a href="javascript:void(0);" onclick="deleteClick('/Admin/Product/Delete',@Model.ID)">Xóa</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs p-0 mb-3 nav-tabs-success" role="tablist">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#details"> <i class="fas fa-info-circle"></i> Chi tiết </a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#image"> <i class="fas fa-image"></i> Ảnh </a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#seo"> <i class="fas fa-globe"></i> SEO </a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#system"> <i class="fab fa-windows"></i> Hệ thống </a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane in active" id="details">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-1">Tên rượu:</label>
+                                                <span>@Model.name</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-1">Slug:</label>
+                                                <span>@Model.slug</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-1">Hãng:</label>
+                                                <span>
+                                                    @foreach (var itemCate in lstCategories)
+                                                    {
+                                                        if (Model.categoryID == itemCate.ID)
+                                                        {
+                                                            if (itemCate.ISDELETE != false)
+                                                            {
+                                                                <span class="text-danger">@itemCate.name</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (itemCate.status == 1)
+                                                                {
+                                                                    <span class="text-success">@itemCate.name</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="text-warning">@itemCate.name</span>
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                </span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-1">Nhà sản xuất:</label>
+                                                <span>
+                                                    @foreach (var itemProducer in lstProducers)
+                                                    {
+                                                        if (Model.producerID == itemProducer.ID)
+                                                        {
+                                                            if (itemProducer.ISDELETE != false)
+                                                            {
+                                                                <span class="text-danger">@itemProducer.name</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (itemProducer.status == 1)
+                                                                {
+                                                                    <span class="text-success">@itemProducer.name</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="text-warning">@itemProducer.name</span>
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                </span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-1">Giá bán:</label>
+                                                <span>@Model.price.Value.ToString("#,###")</span><sup>đ</sup>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="seo">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold mr-1">Meta Title:</label>
+                                            <span>@Model.MetaTitle</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="font-weight-bold mr-1">Meta Keywords:</label>
+                                            <span>@Model.MetaKeyWord</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="font-weight-bold mr-1">Meta Description:</label>
+                                            <span>@Model.MetaDescription</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="image">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <img src="@Model.avatar" class="img-deltail" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="system">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-2">Người tạo:</label>
+                                                <span>@Model.createBy</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-2">Ngày tạo:</label>
+                                                <span>@Model.createDate.Value.ToString("HH:mm, dd-MM-yyyy")</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-2">Người sửa:</label>
+                                                <span>@Model.updateBy</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="font-weight-bold mr-2">Ngày sửa:</label>
+                                                <span>@Model.updateDate.Value.ToString("HH:mm, dd-MM-yyyy")</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 mx-sm-auto">
+                                            <label class="font-weight-bold mr-2">Trạng thái:</label>
+                                            <span>
+                                                @if (Model.status == 1)
+                                                {
+                                                    <text>Đang hiển thị</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>Đang ẩn</text>
+                                                }
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿@model Model.Post
+
+    <div class="header justify-content-between d-flex">
+        <h2 class="pt-3">Chỉnh sửa</h2>
+    </div>
+    <div class="body">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-md-4">
+                    <input type="hidden" id="avatar" value="@Model.avatar" />
+                    <img src="@Model.avatar" title="Cập nhật" id="show-img" onclick="selectFile()" />
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-2">
+                        <input type="text" placeholder="Tên tiêu đề" id="name-change" value="@Model.name" onchange="nameChange()" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" placeholder="Slug" id="slug-name" value="@Model.slug" class="form-control cursor-no-drop" readonly />
+                    </div>
+                    <div class="mb-2">
+                        <select class="form-control" id="category">
+                            <option disabled>Chọn mục hiển thị</option>
+                            @if (Model.category == 1)
+                            {
+                                <option value="1" selected>Kiến thức</option>
+                                <option value="2">Tin tức</option>
+                            }
+                            else
+                            {
+                                <option value="1">Kiến thức</option>
+                                <option value="2" selected>Tin tức</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group justify-content-between d-flex mb-2">
+                        <label class="font-weight-bold col-md-5 mr-1">Trạng thái:</label>
+                        <div>
+                            @if (Model.status == 1)
+                            {
+                                <div class="radio inlineblock m-r-20">
+                                    <input type="radio" name="status" id="sTrue" class="with-gap" value="1" checked>
+                                    <label for="sTrue">Hiển thị</label>
+                                </div>
+                                <div class="radio inlineblock">
+                                    <input type="radio" name="status" id="sFalse" class="with-gap" value="2">
+                                    <label for="sFalse">Bỏ hiển thị</label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="radio inlineblock m-r-20">
+                                    <input type="radio" name="status" id="sTrue" class="with-gap" value="1">
+                                    <label for="sTrue">Hiển thị</label>
+                                </div>
+                                <div class="radio inlineblock">
+                                    <input type="radio" name="status" id="sFalse" class="with-gap" value="2" checked>
+                                    <label for="sFalse">Bỏ hiển thị</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-2">
+                        <input type="text" placeholder="Meta Title" id="metaTitle" value="@Model.MetaTitle" maxlength="60" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" placeholder="Meta Keywords" id="metaKeyword" value="@Model.MetaKeyWord" maxlength="255" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <textarea placeholder="Meta Description" rows="3" maxlength="160" id="metaDescription" class="form-control textarea-resize-none">@Model.MetaDescription</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-12 mb-2">
+                    <label class="font-weight-bold mr-2">Tóm tắt</label>
+                    <div class="mt-1">
+                        <textarea name="summaryContent" id="summary-content">@Model.summaryContent</textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <label class="font-weight-bold mr-2">Nội dung</label>
+                    <div class="mt-1">
+                        <textarea name="mainContent" id="main-content">@Model.mainContent</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-success" onclick="editPost(@Model.ID)">Lưu thay đổi</button>
+                    <button class="btn btn-primary" onclick="btnClick('/Admin/Post/_Index')">Danh sách</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('summary-content');
+            CKEDITOR.replace('main-content');
+        })
+    </script>

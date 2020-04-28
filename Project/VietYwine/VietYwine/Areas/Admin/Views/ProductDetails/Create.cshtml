@@ -1,0 +1,33 @@
+﻿@{
+    var productID = ViewBag.productID;
+}
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Viết mô tả</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tên mô tả" id="name" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <textarea name="description" id="description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success" onclick="createProductDetails(@productID)">Lưu</button>
+                <button class="btn btn-primary" onclick="btnClick('/Admin/ProductDetails/_Index',@productID)">Danh sách mô tả</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('description');
+    })
+</script>

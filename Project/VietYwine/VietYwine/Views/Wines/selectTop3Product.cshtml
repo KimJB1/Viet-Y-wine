@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Model.Product>
+
+@foreach (var item in Model)
+{
+    <li class="flex-w m-b-25">
+        <div class="size16 bo-rad-10 wrap-pic-w wrap-pic-h of-hidden m-r-18">
+            <a href="/ruou/@item.slug">
+                <img src="@item.avatar" alt="IMG-BLOG">
+            </a>
+        </div>
+
+        <div class="size28">
+            <a href="/ruou/@item.slug" class="dis-block txt28 m-b-8">
+                @item.name
+            </a>
+
+            <span class="txt14">
+                @item.price.Value.ToString("#,###") <sup>đ</sup>
+            </span>
+        </div>
+    </li>
+}

@@ -1,0 +1,68 @@
+﻿
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Viết bài đăng</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-4">
+                <input type="hidden" id="avatar" value="/Content/AdminContent/Upload/noImageAvailable.png" />
+                <img src="/Content/AdminContent/Upload/noImageAvailable.png" title="Cập nhật" id="show-img" onclick="selectFile()" />
+            </div>
+            <div class="col-md-4">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tên tiêu đề" id="name-change" onchange="nameChange()" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Slug" id="slug-name" class="form-control cursor-no-drop" readonly />
+                </div>
+                <div class="mb-2">
+                    <select class="form-control" id="category">
+                        <option selected disabled>Chọn mục hiển thị</option>
+                        <option value="1">Kiến thức</option>
+                        <option value="2">Tin tức</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-2">
+                    <input type="text" placeholder="Meta Title" id="metaTitle" maxlength="60" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Meta Keywords" id="metaKeyword" maxlength="255" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <textarea placeholder="Meta Description" rows="3" maxlength="160" id="metaDescription" class="form-control textarea-resize-none"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-12 mb-2">
+                <label class="font-weight-bold mr-2">Tóm tắt</label>
+                <div class="mt-1">
+                    <textarea name="summaryContent" id="summary-content"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12 mb-2">
+                <label class="font-weight-bold mr-2">Nội dung</label>
+                <div class="mt-1">
+                    <textarea name="mainContent" id="main-content"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success" onclick="createPost()">Lưu</button>
+                <button class="btn btn-primary" onclick="btnClick('/Admin/Post/_Index')">Danh sách</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('summary-content');
+        CKEDITOR.replace('main-content');
+    })
+</script>

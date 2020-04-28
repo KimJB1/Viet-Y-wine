@@ -1,0 +1,65 @@
+﻿@model Model.Product
+
+@{
+    ViewBag.Title = Model.name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dataCategory = ViewBag.dataCategory;
+    var dataProducer = ViewBag.dataProducer;
+}
+
+<div class="container mt-3">
+    <div class="row mb-3">
+        <div class="col-md-6 text-center">
+            <img src="@Model.avatar" class="image-details" />
+            <div class="form-group mt-2">
+                <h4 class="font-weight-bold">@Model.name</h4>
+                <p>
+                    <label class="mr-1">Hãng:</label>
+                    <span>
+                        @foreach(var itemCate in dataCategory)
+                        {
+                            if(Model.categoryID== itemCate.ID)
+                            {
+                                @itemCate.name
+                            }
+                            else
+                            {
+                                <text></text>
+                            }
+                        }
+                    </span>
+                </p>
+                <p>
+                    <label class="mr-1">NSX:</label>
+                    <span>
+                        @foreach(var itemProducer in dataProducer)
+                        {
+                            if(Model.producerID== itemProducer.ID)
+                            {
+                                @itemProducer.name
+                            }
+                            else
+                            {
+                                <text></text>
+                            }
+                        }
+                    </span>
+                </p>
+                <p>@Model.price.Value.ToString("#,###") <sup>đ</sup></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            @{ Html.RenderAction("Index", "WineDetails", new { productID = Model.ID });}
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-12 text-center">
+            <span class="tit2 t-center">
+                Bạn cũng có thể quan tâm
+            </span>
+        </div>
+    </div>
+    <div class="row same-wine">
+        @{ Html.RenderAction("sameTop6Product", new { id = Model.ID, categoryID = Model.categoryID });}
+    </div>
+</div>

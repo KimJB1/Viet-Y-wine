@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Model.ProductDetail>
+
+@foreach (var item in Model)
+{
+    <button class="accordion justify-content-between d-flex">
+        <span>@item.name</span>
+        <span>
+            <i class="fas fa-plus"></i>
+        </span>
+    </button>
+    <div class="panel">
+        <p>@Html.Raw(item.description)</p>
+    </div>
+}
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
+    } else {
+        panel.style.display = "block";
+    }
+  });
+}
+</script>

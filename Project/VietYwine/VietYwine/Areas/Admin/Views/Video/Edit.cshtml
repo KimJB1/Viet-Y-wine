@@ -1,0 +1,56 @@
+﻿@model Model.Video
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+        <h4 class="modal-title">Tạo mới</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tiêu đề" id="name" value="@Model.name" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <span>
+                        @if (Model.status == 1)
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1" checked>
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2">
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1">
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2" checked>
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                    </span>
+                </div>
+                <div class="mb-2">
+                    <textarea class="form-control textarea-resize-none" id="video" rows="2" onchange="iframeVideo()" placeholder="Mã nhúng video">@Model.video1</textarea>
+                </div>
+                <div id="show-video">
+                    @Html.Raw(Model.video1)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="editVideo(@Model.ID)">Lưu thay đổi</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+    </div>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Model.Post>
+
+
+@foreach (var item in Model)
+{
+    <li class="flex-w m-b-25">
+        <div class="size16 bo-rad-10 wrap-pic-w wrap-pic-h of-hidden m-r-18">
+            <a href="/doc/@item.slug">
+                <img src="@item.avatar" alt="IMG-BLOG">
+            </a>
+        </div>
+
+        <div class="size28">
+            <a href="/doc/@item.slug" class="dis-block txt28 m-b-8">
+                @item.name
+            </a>
+
+            <span class="txt14">
+                @item.updateDate.Value.ToString("MMMM dd,yyyy")
+            </span>
+        </div>
+    </li>
+}

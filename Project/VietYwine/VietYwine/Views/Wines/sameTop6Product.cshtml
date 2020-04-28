@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Model.Product>
+
+@{
+    var lstProducer = ViewBag.dataProducer;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-md-2 p-t-30">
+        <!-- Block1 -->
+        <div class="blo1">
+            <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom pos-relative">
+                <a href="/ruou/@item.slug"><img src="@item.avatar" alt="IMG-INTRO"></a>
+            </div>
+
+            <div class="wrap-text-blo1 p-t-35 text-center">
+                <a href="/ruou/@item.slug">
+                    <h4 class="txt5 color0-hov trans-0-4 m-b-13">
+                        @item.name
+                    </h4>
+                </a>
+
+                <p class="m-b-20">
+                    @foreach (var itemProducer in lstProducer)
+                    {
+                        if (item.producerID == itemProducer.ID)
+                        {
+                            @itemProducer.name
+                        }
+                    }
+                </p>
+
+                <p class="txt4">
+                    @item.price.Value.ToString("#,###") <sup>đ</sup>
+                </p>
+            </div>
+        </div>
+    </div>
+}

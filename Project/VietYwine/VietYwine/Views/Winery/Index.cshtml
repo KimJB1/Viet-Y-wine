@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Hãng rượu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-gallery p-t-118 p-b-100">
+    <div class="wrap-label-gallery size27 flex-w flex-sb-m m-l-r-auto flex-col-c-sm p-l-15 p-r-15 m-b-60">
+        <button class="label-gallery txt26 trans-0-4 is-actived" onclick="selectProduct(0)">
+            Tất cả
+        </button>
+
+        @{ Html.RenderAction("winery");}
+    </div>
+
+    <div id="show-product">
+        @{ Html.RenderAction("getAll", "Wines", new { page = 1 });}
+    </div>
+
+</div>

@@ -1,0 +1,79 @@
+﻿
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Đăng ký thành viên</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-center mb-2">
+                    <input type="hidden" id="avatar" value="/Content/AdminContent/Upload/noPhotoAvailable.jpg" />
+                    <img src="/Content/AdminContent/Upload/noPhotoAvailable.jpg" title="Cập nhật" id="show-ava" onclick="selectFile()" />
+                </div>
+                <div class="col-md-10 mx-sm-auto mb-2">
+                    <textarea class="form-control mb-2 textarea-resize-none" id="hobbies" rows="2" placeholder="Sở thích"></textarea>
+                    <textarea class="form-control textarea-resize-none" id="description" rows="3" placeholder="Giới thiệu ngắn"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row justify-content-between d-flex">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control mb-2" id="lastName" maxlength="70" placeholder="Họ đệm" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control mb-2" id="firstName" maxlength="30" placeholder="Tên" />
+                    </div>
+                </div>
+                <div class="row justify-content-between d-flex mb-2">
+                    <div class="col-md-6">
+                        <label class="font-weight-bold">Ngày sinh:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" id="birthday" />
+                    </div>
+                </div>
+                <div class="row justify-content-between d-flex">
+                    <div class="col-md-6">
+                        <label class="font-weight-bold">Giới tính:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="radio inlineblock m-r-20">
+                            <input type="radio" name="gender" id="male" class="with-gap" value="1" checked>
+                            <label for="male">Nam</label>
+                        </div>
+                        <div class="radio inlineblock">
+                            <input type="radio" name="gender" id="Female" class="with-gap" value="2">
+                            <label for="Female">Nữ</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <input type="text" class="form-control" id="email" maxlength="200" placeholder="Email" />
+                </div>
+                <div class="col-md-12 mb-2">
+                    <input type="number" class="form-control" id="phone" placeholder="Số điện thoại" />
+                </div>
+                <div class="col-md-12 mb-2">
+                    <input type="text" class="form-control" id="address" placeholder="Địa chỉ" maxlength="200" />
+                </div>
+                <div class="col-md-12 mb-2 justify-content-between d-flex">
+                    <div class="radio inlineblock m-r-20">
+                        <input type="radio" name="supperAdmin" id="true" class="with-gap" value="1">
+                        <label for="true">Quản trị viên</label>
+                    </div>
+                    <div class="radio inlineblock">
+                        <input type="radio" name="supperAdmin" id="false" class="with-gap" value="2" checked>
+                        <label for="false">Cộng tác viên</label>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-2">
+                    <input type="password" class="form-control" id="passWord" placeholder="Mật khẩu" />
+                </div>
+                <div class="col-md-12 mb-2">
+                    <button class="btn btn-success" onclick="createEmployee()">Lưu</button>
+                    <button class="btn btn-primary" onclick="btnClick('/Admin/Employee/_Index')">Danh sách</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

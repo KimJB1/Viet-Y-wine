@@ -1,0 +1,62 @@
+﻿@model Model.ProductDetail
+
+@{
+    var productID = ViewBag.productID;
+}
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Chỉnh sửa mô tả</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tên mô tả" id="name" value="@Model.name" class="form-control" />
+                </div>
+                <div class="form-group mb-2">
+                    <label class="font-weight-bold mr-2">Trạng thái:</label>
+                    <span>
+                        @if (Model.status == 1)
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1" checked>
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2">
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1">
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2" checked>
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                    </span>
+                </div>
+                <div class="mb-2">
+                    <textarea name="description" id="description">@Model.description</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success" onclick="editProductDetails(@Model.ID,@productID)">Lưu thay đổi</button>
+                <button class="btn btn-primary" onclick="btnClick('/Admin/ProductDetails/_Index',@productID)">Danh sách mô tả</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('description');
+    })
+</script>

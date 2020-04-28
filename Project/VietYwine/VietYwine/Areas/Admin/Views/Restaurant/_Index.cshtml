@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Model.Restaurant>
+
+
+@{
+    var stt = 0;
+}
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Danh sách nhà hàng</h2>
+    <button class="btn btn-success" type="button" data-toggle="modal" data-target=".myModal" onclick="btnModal('/Admin/Restaurant/Create')">
+        <i class="fas fa-plus-circle"></i>
+    </button>
+</div>
+<div class="body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên nhà hàng</th>
+                    <th>Điện thoại</th>
+                    <th>Trạng thái</th>
+                    <th>Tác vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    stt++;
+                    <tr>
+                        <td>@stt</td>
+                        <td>
+                            @item.name
+                        </td>
+                        <td>@item.phone</td>
+                        @if (item.status == 1)
+                        {
+                            <td class="text-success">
+                                <i class="fas fa-circle"></i>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-danger">
+                                <i class="fas fa-circle"></i>
+                            </td>
+                        }
+                        <td>
+                            <ul class="header-dropdown list-unstyled">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target=".myModal" onclick="btnModal('/Admin/Restaurant/Details',@item.ID)">Xem</a></li>
+                                        <li><a href="javascript:void(0);" data-toggle="modal" data-target=".myModal" onclick="btnModal('/Admin/Restaurant/Edit',@item.ID)">Sửa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="deleteClick('/Admin/Restaurant/Delete',@item.ID)">Xóa</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="/Content/AdminContent/assets/bundles/vendorscripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/bundles/datatablescripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="/Content/AdminContent/assets/js/pages/tables/jquery-datatable.js"></script>

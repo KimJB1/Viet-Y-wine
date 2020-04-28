@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Quản lý website bán rượu">
+    <title>@ViewBag.Title | Quản trị</title>
+    <link rel="icon" href="/Content/AdminContent/Upload/logo.ico" type="image/x-icon"> <!-- Favicon-->
+    <link rel="stylesheet" href="/Content/AdminContent/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- JQuery DataTable Css -->
+    <link rel="stylesheet" href="/Content/AdminContent/assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/Content/AdminContent/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css" />
+    <link rel="stylesheet" href="/Content/AdminContent/assets/plugins/charts-c3/plugin.css" />
+    <link href="~/Content/AdminContent/assets/fontawesome-free-5.12.0-web/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/AdminContent/assets/plugins/morrisjs/morris.min.css" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/AdminContent/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/Content/AdminContent/assets/css/style.min.css">
+    <link href="~/Content/AdminContent/assets/css/myCss.css" rel="stylesheet" />
+
+</head>
+
+<body class="theme-blush right_icon_toggle">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="/Content/AdminContent/Upload/Line-Preloader.gif" width="100" alt=""></div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <div class="navbar-brand">
+            <button class="btn-menu ls-toggle-btn text-white" type="button"><i class="zmdi zmdi-menu"></i></button>
+            <a href="/trang-chu-quan-tri"><img src="/Content/AdminContent/Upload/logo.png" width="65" alt=""><span class="m-l-10 text-white">Viet Y wine</span></a>
+        </div>
+        <div class="menu">
+            <ul class="list">
+                <li>
+                    <div class="user-info">
+                        <a class="image"><img src="@Session["userAva"]" alt="avatar"></a>
+                        <div class="detail">
+                            <h4>@Session["userFirstName"]</h4>
+                            @if (Session["userID"] != null)
+                            {
+                                <small class="text-success">
+                                    <i class="fas fa-circle"></i>
+                                    Online
+                                </small>
+                            }
+                            else
+                            {
+                                <small class="text-danger">
+                                    <i class="fas fa-circle"></i>
+                                    Offline
+                                </small>
+                            }
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/trang-chu-quan-tri"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle"><i class="fab fa-windows"></i><span>Hệ thống</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="/quan-tri-nhan-vien">Quản lý nhân viên</a></li>
+                        <li><a href="/quan-tri-trang-gioi-thieu">Giới thiệu</a></li>
+                    </ul>
+                </li>
+                <li><a href="/quan-tri-nha-hang"><i class="fas fa-hotel"></i><span>Chuỗi nhà hàng</span></a></li>
+                <li><a href="/quan-tri-nha-san-xuat"><i class="fas fa-warehouse"></i><span>Nhà sản xuất</span></a></li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-glass-cheers"></i><span>Sản phẩm</span></a>
+                    <ul class="ml-menu">
+                        <li><a href="/quan-tri-hang-ruou">Hãng rượu</a></li>
+                        <li><a href="/quan-tri-san-pham">Rượu</a></li>
+                    </ul>
+                </li>
+                <li><a href="/quan-tri-video"><i class="fab fa-youtube"></i><span>Video</span></a></li>
+                <li><a href="/quan-tri-bai-dang"><i class="fas fa-file-signature"></i><span>Bài đăng</span></a></li>
+                <li>
+                    <div class="justify-content-between d-flex ml-menu">
+                        <a href="javascript:void(0);" class="app_google_drive" title="Trang cá nhân"><i class="fas fa-user-tie"></i></a>
+                        <a href="javascript:void(0);" class="js-right-sidebar" title="Chỉnh sửa thông tin"><i class="fas fa-user-edit"></i></a>
+                        <a href="javascript:void(0);" class="app_group_work" title="Đổi mật khẩu"><i class="fas fa-key"></i></a>
+                        <a href="/Admin/SystemManagement/Logout" class="mega-menu" title="Đăng xuất"><i class="zmdi zmdi-power"></i></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <button class="btn btn-primary float-left btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+        </div>
+        <!-- main body-->
+        <div class="container-fluid mt-5">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Jquery Core Js -->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="/Content/AdminContent/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+    <script src="/Content/AdminContent/assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+    <script src="~/Content/AdminContent/assets/fontawesome-free-5.12.0-web/js/all.min.js"></script>
+    <!-- data table -->
+    <script src="/Content/AdminContent/assets/bundles/datatablescripts.bundle.js"></script>
+    <script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+    <script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+    <!---->
+    <script src="/Content/AdminContent/assets/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
+    <script src="/Content/AdminContent/assets/bundles/sparkline.bundle.js"></script> <!-- Sparkline Plugin Js -->
+    <script src="/Content/AdminContent/assets/bundles/c3.bundle.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Content/AdminContent/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="/Content/AdminContent/assets/bundles/mainscripts.bundle.js"></script>
+    <script src="/Content/AdminContent/assets/js/pages/tables/jquery-datatable.js"></script>
+    <script src="/Content/AdminContent/assets/js/pages/index.js"></script>
+    <!-- custom js-->
+    <script src="~/Content/AdminContent/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/AdminContent/ckfinder/ckfinder.js"></script>
+    <script src="~/Content/AdminContent/assets/js/checkData.js"></script>
+    <script src="~/Content/AdminContent/assets/js/gallery.js"></script>
+    <script src="~/Content/AdminContent/assets/js/ultilities.js"></script>
+    <script src="~/Content/AdminContent/assets/js/CreateJS.js"></script>
+    <script src="~/Content/AdminContent/assets/js/EditJS.js"></script>
+    <script src="~/Content/AdminContent/assets/js/DeleteJS.js"></script>
+</body>
+
+
+</html>

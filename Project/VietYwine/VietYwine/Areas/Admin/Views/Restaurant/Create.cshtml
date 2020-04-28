@@ -1,0 +1,43 @@
+﻿<!-- Modal Header -->
+<div class="modal-header">
+    <h4 class="modal-title">Tạo mới</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-2">
+                <input type="text" placeholder="Tên nhà hàng" id="name" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <input type="text" placeholder="Địa chỉ" id="address" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <input type="text" placeholder="Email" id="email" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <input type="text" placeholder="Số điện thoại" maxlength="11" id="phone" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <div class="row justify-content-between d-flex">
+                    <div class="col-md-10">
+                        <textarea id="map" rows="2" placeholder="Mã nhúng bản đồ" class="form-control textarea-resize-none"></textarea>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="https://goo.gl/maps/etjiGX1QBZp6HDfR9" target="_blank" title="Mở Google Maps">
+                            <i class="fas fa-map-marker-alt font-size-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal footer -->
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" onclick="createRestaurant()">Lưu</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+</div>

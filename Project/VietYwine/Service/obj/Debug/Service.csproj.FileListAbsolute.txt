@@ -1,0 +1,46 @@
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Service.dll.config
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Service.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Service.pdb
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Common.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\EntityFramework.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\EntityFramework.SqlServer.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Model.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Repository.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Common.pdb
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Common.dll.config
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Model.pdb
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Model.dll.config
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Repository.pdb
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\Repository.dll.config
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\EntityFramework.xml
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\EntityFramework.SqlServer.xml
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\obj\Debug\Service.csprojAssemblyReference.cache
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\obj\Debug\Service.csproj.CopyComplete
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\obj\Debug\Service.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\obj\Debug\Service.pdb
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\PagedList.dll
+E:\Dự án\Viet Y Wine\Project\VietYwine\Service\bin\Debug\PagedList.xml
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Service.dll.config
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Service.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Service.pdb
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Common.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\EntityFramework.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\EntityFramework.SqlServer.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Model.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\PagedList.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Repository.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Common.pdb
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Common.dll.config
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Model.pdb
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Model.dll.config
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Repository.pdb
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\Repository.dll.config
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\EntityFramework.xml
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\EntityFramework.SqlServer.xml
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\bin\Debug\PagedList.xml
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\obj\Debug\Service.csprojAssemblyReference.cache
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\obj\Debug\Service.csproj.CopyComplete
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\obj\Debug\Service.dll
+E:\Dự án\Viet Y Wine\Viet Y wine 28042020\Project\VietYwine\Service\obj\Debug\Service.pdb

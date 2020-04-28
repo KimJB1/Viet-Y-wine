@@ -1,0 +1,112 @@
+﻿@model Model.Product
+
+
+@{
+    var getCategories = ViewBag.getCategories;
+    var getProducer = ViewBag.getProducer;
+}
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Chỉnh sửa</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tên rượu" value="@Model.name" id="name-change" onchange="nameChange()" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" readonly placeholder="slug" value="@Model.slug" id="slug-name" class="form-control cursor-no-drop" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="hidden" id="avatar" value="@Model.avatar" />
+                <img src="@Model.avatar" id="show-img" title="Cập nhật" onclick="selectFile()" />
+            </div>
+            <div class="col-md-4">
+                <div class="mb-2">
+                    <select class="form-control" id="categoryID">
+                        <option disabled>Chọn hãng rượu</option>
+                        @foreach (var itemCate in getCategories)
+                        {
+                            if (Model.categoryID == itemCate.ID)
+                            {
+                                <option value="@itemCate.ID" selected>@itemCate.name</option>
+                            }
+                            else
+                            {
+                                <option value="@itemCate.ID">@itemCate.name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <select class="form-control" id="producerID">
+                        <option disabled>Chọn nhà sản xuất</option>
+                        @foreach (var itemProducer in getProducer)
+                        {
+                            if (Model.producerID == itemProducer.ID)
+                            {
+                                <option value="@itemProducer.ID" selected>@itemProducer.name</option>
+                            }
+                            else
+                            {
+                                <option value="@itemProducer.ID">@itemProducer.name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Giá bán" id="price" value="@Model.price" class="form-control" />
+                </div>
+                <div class="form-group justify-content-between d-flex mb-2">
+                    <label class="font-weight-bold col-md-5 mr-1">Trạng thái:</label>
+                    <div>
+                        @if (Model.status == 1)
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1" checked>
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2">
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1">
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2" checked>
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-2">
+                    <input type="text" placeholder="Meta Title" id="metaTitle" value="@Model.MetaTitle" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Meta Keywords" id="metaKeyword" value="@Model.MetaKeyWord" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <textarea placeholder="Meta Description" rows="3" id="metaDescription" class="form-control textarea-resize-none">@Model.MetaDescription</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success" onclick="editProduct(@Model.ID)">Lưu thay đổi</button>
+                <button class="btn btn-primary" onclick="btnClick('/Admin/Product/_Index')">Danh sách</button>
+            </div>
+        </div>
+    </div>
+</div>

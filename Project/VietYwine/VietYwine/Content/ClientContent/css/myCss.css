@@ -1,0 +1,84 @@
+﻿h1,h2,h3,h4,h5,h6,div,p,a,button {
+    font-family: 'Roboto', sans-serif !important;
+}
+.custom-text {
+    font-size: 3em;
+    font-weight: bold;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    cursor: default;
+    background-color: #ec1d25;
+    border-color: #ec1d25;
+}
+.phone-contact {
+    position: fixed;
+    bottom: 5em;
+    border: 1px solid;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    left: 0.2em;
+    color: #ec1d25;
+    background: rgba(255,255,255,0.3);
+}
+.icon-phone{
+    width:3em;
+}
+[class^="ti-"], [class*=" ti-"] {
+    font-family: 'themify' !important;
+}
+/*product details*/
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+    .active, .accordion:hover {
+        background-color: #ccc;
+    }
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+.image-details{
+    max-width:100%;
+}
+/*end product details*/
+.wrap-pic-h img{
+    height:100%;
+}
+iframe{
+    width:100%;
+}
+.contact-left{
+    max-height:447px;
+    overflow-y:auto;
+}
+    .contact-left::-webkit-scrollbar {
+        width: 8px; /* width of the entire scrollbar */
+    }
+
+    .contact-left::-webkit-scrollbar-track {
+        background: #dedad2; /* color of the tracking area */
+        border-radius: 20px; /* roundness of the scroll thumb */
+    }
+
+    .contact-left::-webkit-scrollbar-thumb {
+        background-color: black; /* color of the scroll thumb */
+        border-radius: 20px; /* roundness of the scroll thumb */
+        border: 3px solid black; /* creates padding around scroll thumb */
+    }

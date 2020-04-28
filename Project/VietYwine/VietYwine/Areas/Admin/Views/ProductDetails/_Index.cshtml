@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Model.ProductDetail>
+
+@{
+    var lstProducts = ViewBag.dataProduct;
+    var stt = 0;
+}
+
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Danh sách mô tả của @lstProducts.name</h2>
+    <span>
+        <button class="btn btn-primary" type="button" onclick="btnClick('/Admin/Product/_Index')">
+            Danh sách rượu
+        </button>
+        <button class="btn btn-success" type="button" onclick="selectView('/Admin/ProductDetails/Create', @lstProducts.ID)">
+            <i class="fas fa-plus-circle"></i>
+        </button>
+    </span>
+</div>
+<div class="body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên mô tả</th>
+                    <th>Trạng thái</th>
+                    <th>Tác vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    stt++;
+                    <tr>
+                        <td>@stt</td>
+                        <td>
+                            @item.name
+                        </td>
+                        <td>
+                            @if (item.status == 1)
+                            {
+                                <span class="text-success">
+                                    <i class="fas fa-circle"></i>
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">
+                                    <i class="fas fa-circle"></i>
+                                </span>
+                            }
+                        </td>
+                        <td>
+                            <ul class="header-dropdown list-unstyled">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0);" onclick="selectView('/Admin/ProductDetails/Details',@lstProducts.ID,@item.ID)">Xem</a></li>
+                                        <li><a href="javascript:void(0);" onclick="selectView('/Admin/ProductDetails/Edit',@lstProducts.ID,@item.ID)">Sửa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="removeClick('/Admin/ProductDetails/Delete',@lstProducts.ID,@item.ID)">Xóa</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="/Content/AdminContent/assets/bundles/vendorscripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/bundles/datatablescripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="/Content/AdminContent/assets/js/pages/tables/jquery-datatable.js"></script>

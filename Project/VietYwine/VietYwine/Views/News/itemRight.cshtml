@@ -1,0 +1,35 @@
+﻿<div class="sidebar2 p-t-80 p-b-80 p-l-20 p-l-0-md p-t-0-md">
+    <!-- Categories -->
+    <div class="categories">
+        <h4 class="txt33 bo5-b p-b-35 p-t-58">
+            Rượu mới
+        </h4>
+
+        <ul>
+            @{ Html.RenderAction("selectTop3Product", "Wines");}
+        </ul>
+    </div>
+
+    <!-- Most Popular -->
+    <div class="popular">
+        <h4 class="txt33 p-b-35 p-t-58">
+            Kiến thức
+        </h4>
+
+        <ul>
+            @{ Html.RenderAction("selectTop3Knowledge", "Knowledge");}
+        </ul>
+    </div>
+
+
+    <!-- Archive -->
+    <div class="archive">
+        <h4 class="txt33 p-b-20 p-t-43">
+            Tin tức mới
+        </h4>
+
+        <ul>
+            @{ Html.RenderAction("selectTop3News", "News");}
+        </ul>
+    </div>
+</div>

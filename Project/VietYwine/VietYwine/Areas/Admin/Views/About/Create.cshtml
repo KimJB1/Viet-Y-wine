@@ -1,0 +1,25 @@
+﻿<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Viết bài giới thiệu về công ty</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <input type="text" class="form-control" maxlength="500" id="about-name" placeholder="Tiêu đề" />
+            </div>
+            <div class="col-md-12 mb-2">
+                <textarea name="description" id="description" rows="10"></textarea>
+            </div>
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success" onclick="createAbout()">Lưu</button>
+                <button class="btn btn-primary" onclick="btnClick('/Admin/About/_Index')">Danh sách</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('description');
+    })
+</script>

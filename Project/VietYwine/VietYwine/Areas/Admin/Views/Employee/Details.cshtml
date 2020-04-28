@@ -1,0 +1,154 @@
+﻿@model Model.Employee
+
+@{
+    int yearOld = DateTime.Now.Year - Model.birthday.Value.Year;
+}
+
+
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class="col-lg-4 col-md-12">
+            <div class="card mcard_4">
+                <div class="body">
+                    <ul class="header-dropdown list-unstyled">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-menu"></i> </a>
+                            <ul class="dropdown-menu slideUp">
+                                <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Employee/_Index')">Danh sách</a></li>
+                                <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Employee/Edit',@Model.ID)">Sửa</a></li>
+                                <li><a href="javascript:void(0);" onclick="deleteClick('/Admin/Employee/Delete',@Model.ID)">Xóa</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="img">
+                        <img src="@Model.avatar" class="rounded-circle" alt="profile-image">
+                    </div>
+                    <div class="user">
+                        <h5 class="mt-3 mb-1">
+                            @Model.lastName @Model.firstName
+                            @if (Model.isAdministrator == 1)
+                            {
+                                <small>(Quản trị viên)</small>
+                            }
+                            else
+                            {
+                                <small>(Cộng tác viên)</small>
+                            }
+                        </h5>
+                        <small class="text-muted">@Model.email</small>
+                        <div>
+                            <label class="font-weight-bold mr-2">
+                                <i class="fas fa-mobile-alt"></i>
+                            </label>
+                            <span>@Model.phone</span>
+                        </div>
+                        <div>
+                            <label class="font-weight-bold mr-2">
+                                <i class="fas fa-venus-mars"></i>
+                            </label>
+                            <span>
+                                @if (Model.gender == 1)
+                                {
+                                    <text>Nam</text>
+                                }
+                                else
+                                {
+                                    <text>Nữ</text>
+                                }
+                            </span>
+                        </div>
+                        <div>
+                            <label class="font-weight-bold mr-2">
+                                <i class="fas fa-birthday-cake"></i>
+                            </label>
+                            <span>@Model.birthday.Value.ToString("dd-MM-yyyy") (@yearOld tuổi)</span>
+                        </div>
+                        <div>
+                            <label class="font-weight-bold mr-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </label>
+                            <span>@Model.address</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-md-12">
+            <div class="card">
+                <div class="body">
+                    <h5>Sở thích</h5>
+                    <span>
+                        @if (Model.hobbies.Length > 1)
+                        {
+                            @Html.Raw(Model.hobbies)
+                        }
+                        else
+                        {
+                            <text>Trống!</text>
+                        }
+                    </span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="body">
+                    <h5>Giới thiệu ngắn</h5>
+                    <span>
+                        @if (Model.description.Length > 1)
+                        {
+                            @Html.Raw(Model.description)
+                        }
+                        else
+                        {
+                            <text>Trống!</text>
+                        }
+                    </span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="body">
+                    <h5>Hệ Thống</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold mr-2">Người tạo:</label>
+                                <span>@Model.createBy</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold mr-2">Ngày tạo:</label>
+                                <span>@Model.createDate.Value.ToString("HH:mm, dd-MM-yyyy")</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold mr-2">Người sửa:</label>
+                                <span>@Model.updateBy</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold mr-2">Ngày sửa:</label>
+                                <span>@Model.updateDate.Value.ToString("HH:mm, dd-MM-yyyy")</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mx-sm-auto">
+                            <div class="form-group">
+                                <label class="font-weight-bold mr-2">Trạng thái:</label>
+                                <span>
+                                    @if (Model.status == 1)
+                                    {
+                                        <text>Đang hợp tác</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Đã hủy hợp tác</text>
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

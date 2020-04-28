@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Đăng nhập hệ thống quản trị quản lý quán rượu.">
+
+    <title>Đăng nhập | Viet Y wine</title>
+    <!-- Favicon-->
+    <link rel="icon" href="/Content/AdminContent/Upload/logo.ico" type="image/x-icon">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/Content/AdminContent/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/AdminContent/assets/css/style.min.css">
+</head>
+
+<body class="theme-blush">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper" style="display:none;">
+        <div class="loader">
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="/Content/AdminContent/Upload/Line-Preloader.gif" width="100" alt=""></div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <div class="authentication">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <form class="card auth_form">
+                        <div class="header">
+                            <img class="logo" src="/Content/AdminContent/Upload/logo.png" alt="">
+                            <h5>Đăng nhập hệ thống</h5>
+                        </div>
+                        <div class="body">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="email" placeholder="Your email...">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" id="passWord" placeholder="Your password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block waves-effect waves-light text-white" onclick="singIn()">Đăng nhập</button>
+                        </div>
+                    </form>
+                    <div class="copyright text-center">
+                        &copy; Developed by <a href="http://devmaster.vn/" target="_blank">Devmaster Academy</a> | Design by <a href="https://www.facebook.com/maiviet8748" target="_blank">Kim JB</a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12">
+                    <div class="card">
+                        <img src="~/Content/AdminContent/Upload/signin.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery Core Js -->
+    <script src="/Content/AdminContent/assets/bundles/libscripts.bundle.js"></script>
+    <script src="/Content/AdminContent/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script src="~/Scripts/toastr.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // sing in system management
+        function singIn() {
+            let email = $('input#email').val();
+            let pass = $('input#passWord').val();
+            $.ajax({
+                url: '/Admin/SystemManagement/Login',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    email: email,
+                    passWord: pass
+                },
+                beforeSend: function () {
+                    $('.page-loader-wrapper').css('display', 'block');
+                }
+            })
+                .done(function (res) {
+                    if (res.statusCode != 200) {
+                        toastr.error(res.Message, 'Thông báo');
+                    }
+                    else {
+                        toastr.success(res.Message, 'Thông báo');
+                        window.location.href = '/trang-chu-quan-tri';
+                    }
+                })
+                .fail(function () {
+
+                })
+                .always(function () {
+                    $('.page-loader-wrapper').css('display', 'none');
+                });
+        }
+    </script>
+</body>
+
+
+</html>

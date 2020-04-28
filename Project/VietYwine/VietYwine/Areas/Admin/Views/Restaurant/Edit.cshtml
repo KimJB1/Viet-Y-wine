@@ -1,0 +1,72 @@
+﻿@model Model.Restaurant
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+        <h4 class="modal-title">Tạo mới</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tên nhà hàng" value="@Model.name" id="name" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Địa chỉ" id="address" value="@Model.address" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Email" id="email" value="@Model.email" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Số điện thoại" maxlength="11" value="@Model.phone" id="phone" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <div class="row justify-content-between d-flex">
+                        <div class="col-md-10">
+                            <textarea id="map" rows="2" placeholder="Mã nhúng bản đồ" class="form-control textarea-resize-none">@Model.map</textarea>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="https://goo.gl/maps/etjiGX1QBZp6HDfR9" target="_blank" title="Mở Google Maps">
+                                <i class="fas fa-map-marker-alt font-size-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold mr-2">Trạng thái:</label>
+                    <span>
+                        @if (Model.status == 1)
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1" checked>
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2">
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="radio inlineblock m-r-20">
+                                <input type="radio" name="status" id="sTrue" class="with-gap" value="1">
+                                <label for="sTrue">Hiển thị</label>
+                            </div>
+                            <div class="radio inlineblock">
+                                <input type="radio" name="status" id="sFalse" class="with-gap" value="2" checked>
+                                <label for="sFalse">Bỏ hiển thị</label>
+                            </div>
+                        }
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="editRestaurant(@Model.ID)">Lưu thay đổi</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+    </div>

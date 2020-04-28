@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-lg-9">
+            <div class="p-t-80 p-b-124 bo5-r h-full p-r-50 p-r-0-md bo-none-md show-news">
+                @{ Html.RenderAction("_Index", new { page = 1 });}
+            </div>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+            @{ Html.RenderAction("itemRight", "News");}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Model.Post>
+
+@{
+    var stt = 0;
+}
+
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Danh sách bài đăng</h2>
+    <button class="btn btn-success" type="button" onclick="btnClick('/Admin/Post/Create')">
+        <i class="fas fa-plus-circle"></i>
+    </button>
+</div>
+<div class="body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên tiêu đề</th>
+                    <th>Mục</th>
+                    <th>Trạng thái</th>
+                    <th>Tác vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    stt++;
+                    <tr>
+                        <td>@stt</td>
+                        <td>
+                            @item.name
+                        </td>
+                        <td>
+                            @if (item.category == 1)
+                            {
+                                <text>Kiến thức</text>
+                            }
+                            else
+                            {
+                                <text>Tin tức</text>
+                            }
+                        </td>
+                        @if (item.status == 1)
+                        {
+                            <td class="text-success">
+                                <i class="fas fa-circle"></i>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-danger">
+                                <i class="fas fa-circle"></i>
+                            </td>
+                        }
+                        <td>
+                            <ul class="header-dropdown list-unstyled">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Post/Details',@item.ID)">Xem</a></li>
+                                        <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Post/Edit',@item.ID)">Sửa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="deleteClick('/Admin/Post/Delete',@item.ID)">Xóa</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="/Content/AdminContent/assets/bundles/vendorscripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/bundles/datatablescripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="/Content/AdminContent/assets/js/pages/tables/jquery-datatable.js"></script>

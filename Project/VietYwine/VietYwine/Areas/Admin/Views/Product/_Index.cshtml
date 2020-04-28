@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Model.Product>
+
+@{
+    var lstCategories = ViewBag.dataCategory;
+    var stt = 0;
+}
+
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Danh sách rượu</h2>
+    <button class="btn btn-success" type="button" onclick="btnClick('/Admin/Product/Create')">
+        <i class="fas fa-plus-circle"></i>
+    </button>
+</div>
+<div class="body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ảnh</th>
+                    <th>Tên rượu</th>
+                    <th>Hãng</th>
+                    <th>Trạng thái</th>
+                    <th>Tác vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    stt++;
+                    <tr>
+                        <td>@stt</td>
+                        <td>
+                            <img src="@item.avatar" class="avatar w30" alt="avt" />
+                        </td>
+                        <td>
+                            @item.name
+                        </td>
+                        <td>
+                            @foreach (var itemCate in lstCategories)
+                            {
+                                if (item.categoryID == itemCate.ID)
+                                {
+                                    if (itemCate.ISDELETE != false)
+                                    {
+                                        <span class="text-danger">@itemCate.name</span>
+                                    }
+                                    else
+                                    {
+                                        if (itemCate.status == 1)
+                                        {
+                                            <span class="text-success">@itemCate.name</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-warning">@itemCate.name</span>
+                                        }
+                                    }
+                                }
+                            }
+                        </td>
+                        <td>
+                            @if (item.status == 1)
+                            {
+                                <span class="text-success">
+                                    <i class="fas fa-circle"></i>
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">
+                                    <i class="fas fa-circle"></i>
+                                </span>
+                            }
+                        </td>
+                        <td>
+                            <ul class="header-dropdown list-unstyled">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-settings zmdi-hc-spin"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Product/Details',@item.ID)">Xem</a></li>
+                                        <li><a href="javascript:void(0);" onclick="btnClick('/Admin/Product/Edit',@item.ID)">Sửa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="deleteClick('/Admin/Product/Delete',@item.ID)">Xóa</a></li>
+                                        <hr />
+                                        <li><a href="javascript:void(0);" onclick="btnClick('/Admin/ProductDetails/_Index',@item.ID)">Viết mô tả</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="/Content/AdminContent/assets/bundles/vendorscripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/bundles/datatablescripts.bundle.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="/Content/AdminContent/assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="/Content/AdminContent/assets/js/pages/tables/jquery-datatable.js"></script>

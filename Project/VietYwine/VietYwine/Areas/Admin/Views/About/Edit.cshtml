@@ -1,0 +1,54 @@
+﻿@model Model.About
+
+<div class="header justify-content-between d-flex">
+    <h2 class="pt-3">Chỉnh sửa bài giới thiệu</h2>
+</div>
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <input type="text" class="form-control" maxlength="500" id="about-name" value="@Model.name" placeholder="Tiêu đề" />
+            </div>
+            <div class="col-md-12">
+                    <label class="font-weight-bold mr-2">Trạng thái:</label>
+                <span>
+                    @if (Model.status == 1)
+                    {
+                        <div class="radio inlineblock m-r-20">
+                            <input type="radio" name="status" id="sTrue" class="with-gap" value="1" checked>
+                            <label for="sTrue">Hiển thị</label>
+                        </div>
+                        <div class="radio inlineblock">
+                            <input type="radio" name="status" id="sFalse" class="with-gap" value="2">
+                            <label for="sFalse">Bỏ hiển thị</label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="radio inlineblock m-r-20">
+                            <input type="radio" name="status" id="sTrue" class="with-gap" value="1">
+                            <label for="sTrue">Hiển thị</label>
+                        </div>
+                        <div class="radio inlineblock">
+                            <input type="radio" name="status" id="sFalse" class="with-gap" value="2" checked>
+                            <label for="sFalse">Bỏ hiển thị</label>
+                        </div>
+                    }
+                </span>
+            </div>
+            <div class="col-md-12 mb-2">
+                <textarea name="description" id="description" rows="10">@Model.description</textarea>
+            </div>
+            <div class="col-md-12 text-right">
+                <button class="btn btn-success" onclick="editAbout(@Model.ID)">Lưu thay đổi</button>
+                <button class="btn btn-primary" onclick="btnClick('/Admin/About/_Index')">Danh sách</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('description');
+    })
+</script>

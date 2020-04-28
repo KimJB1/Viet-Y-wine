@@ -1,0 +1,39 @@
+﻿<!-- Modal Header -->
+<div class="modal-header">
+    <h4 class="modal-title">Tạo mới</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="hidden" id="avatar" value="/Content/AdminContent/Upload/noImageAvailable.png" />
+                <img src="/Content/AdminContent/Upload/noImageAvailable.png" title="Cập nhật" id="show-img" onclick="selectFile()"/>
+            </div>
+            <div class="col-md-8">
+                <div class="mb-2">
+                    <input type="text" placeholder="Tên nhà sản xuất" id="producer-name" maxlength="300" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Địa chỉ" maxlength="200" id="address" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <input type="text" placeholder="Email" maxlength="200" id="email" class="form-control" />
+                </div>
+                <div class="mb-2">
+                    <textarea type="text" placeholder="Website" maxlength="1000" id="website" rows="1" class="form-control textarea-resize-none"></textarea>
+                </div>
+                <div class="mb-2">
+                    <input type="number" placeholder="Số điện thoại" maxlength="11" id="phone" class="form-control" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal footer -->
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" onclick="createProducer()">Lưu</button>
+</div>

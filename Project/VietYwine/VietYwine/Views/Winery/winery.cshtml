@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Model.Category>
+
+@foreach (var item in Model)
+{
+    <button class="label-gallery txt26 trans-0-4" onclick="selectProduct(@item.ID)">
+        @item.name
+    </button>
+}

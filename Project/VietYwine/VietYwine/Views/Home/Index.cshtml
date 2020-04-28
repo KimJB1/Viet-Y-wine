@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Welcome -->
+<section class="section-welcome bg1-pattern p-t-120 p-b-105">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-t-45 p-b-30">
+                <div class="wrap-text-welcome t-center">
+                    <span class="tit2 t-center">
+                        Viet Y
+                    </span>
+
+                    <h3 class="tit3 t-center m-b-35 m-t-5">
+                        wine
+                    </h3>
+
+                    <p class="t-center m-b-22 size3 m-l-r-auto">
+                        @{ Html.RenderAction("about");}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 p-b-30">
+                <div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+                    <img src="/Content/ClientContent/upload/Vinpearl-phu-quoc-resort-Villas.jpg" alt="IMG-OUR">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Intro -->
+<section class="section-intro">
+    <div class="header-intro parallax100 t-center p-t-135 p-b-158" style="background-image: url(/Content/ClientContent/upload/baner-contact.jpg);">
+        <span class="tit2 p-l-15 p-r-15">
+            Discover
+        </span>
+
+        <h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+            Kiến thức
+        </h3>
+    </div>
+
+    <div class="content-intro bg-white p-t-77 p-b-133">
+        <div class="container">
+            <div class="row">
+                @{ Html.RenderAction("top3Knowledge", "Knowledge");}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Video -->
+<section class="section-video parallax100" style="background-image: url(/Content/ClientContent/upload/parallax-img1.jpg);">
+    <div class="content-video t-center p-t-225 p-b-250">
+        <span class="tit2 p-l-15 p-r-15">
+            Discover
+        </span>
+
+        <h3 class="tit4 t-center p-l-15 p-r-15 p-t-3">
+            Our Video
+        </h3>
+
+        <div class="btn-play ab-center size16 hov-pointer m-l-r-auto m-t-43 m-b-33" data-toggle="modal" data-target="#modal-video-01">
+            <div class="flex-c-m sizefull bo-cir bgwhite color1 hov1 trans-0-4">
+                <i class="fa fa-play fs-18 m-l-2" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Blog -->
+<section class="section-blog bg-white p-t-115 p-b-123">
+    <div class="container">
+        <div class="title-section-ourmenu t-center m-b-22">
+            <span class="tit2 t-center">
+                Latest News
+            </span>
+
+            <h3 class="tit5 t-center m-t-2">
+                The Blog
+            </h3>
+        </div>
+
+        <div class="row">
+            @{ Html.RenderAction("getTop3News", "News");}
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal Video 01-->
+<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-dialog" role="document" data-dismiss="modal">
+        <div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
+
+        <div class="wrap-video-mo-01">
+            <div class="w-full wrap-pic-w op-0-0"><img src="/Content/ClientContent/images/icons/video-16-9.jpg" alt="IMG"></div>
+            <div class="video-mo-01">
+                @{ Html.RenderAction("Index", "Videos");}
+            </div>
+        </div>
+    </div>
+</div>

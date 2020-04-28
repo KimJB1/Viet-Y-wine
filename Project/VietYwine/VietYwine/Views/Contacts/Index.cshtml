@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Model.Restaurant>
+
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-3">
+            <div class="sidebar2 p-b-80 p-l-20 p-l-0-md p-t-0-md">
+
+                <!-- Categories -->
+                <div class="categories">
+                    <h4 class="txt33 bo5-b p-b-35 p-t-58 text-center">
+                        Các khu vực
+                    </h4>
+
+                    <ul class="contact-left">
+
+                        @foreach (var item in Model)
+                        {
+                            <li class="bo5-b p-t-8 p-b-8">
+                                <p class="txt27 font-weight-bold">
+                                    @item.name
+                                </p>
+                                <p>
+                                    Đ/c: @item.address
+                                </p>
+                                <p>
+                                    Điện thoại: @item.phone
+                                </p>
+                                <p>
+                                    <button class="label-gallery txt26 trans-0-4" onclick="selectMap(@item.ID)">
+                                        Hướng
+                                    </button>
+                                </p>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-9">
+            <div class="p-t-80 p-b-124 bo5-r h-full p-r-50 p-r-0-md bo-none-md" id="show-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1140522.4479665959!2d107.10057438765246!3d21.091656378863693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1svi!2sla!4v1588044279583!5m2!1svi!2sla" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

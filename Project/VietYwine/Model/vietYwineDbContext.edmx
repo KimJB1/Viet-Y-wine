@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VietYWineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="500" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="60" />
+          <Property Name="MetaKeyWord" Type="nvarchar" MaxLength="255" />
+          <Property Name="MetaDescription" Type="nvarchar" MaxLength="160" />
+          <Property Name="slug" Type="varchar" MaxLength="200" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="70" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="30" />
+          <Property Name="avatar" Type="nvarchar(max)" />
+          <Property Name="gender" Type="tinyint" />
+          <Property Name="birthday" Type="date" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="phone" Type="varchar" MaxLength="11" />
+          <Property Name="hobbies" Type="nvarchar" MaxLength="2000" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="passWord" Type="varchar" MaxLength="200" />
+          <Property Name="isAdministrator" Type="tinyint" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="500" />
+          <Property Name="avatar" Type="nvarchar(max)" />
+          <Property Name="category" Type="tinyint" />
+          <Property Name="summaryContent" Type="nvarchar" MaxLength="2000" />
+          <Property Name="mainContent" Type="ntext" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="60" />
+          <Property Name="MetaKeyWord" Type="nvarchar" MaxLength="255" />
+          <Property Name="MetaDescription" Type="nvarchar" MaxLength="160" />
+          <Property Name="slug" Type="varchar" MaxLength="600" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Producer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="300" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" />
+          <Property Name="phone" Type="varchar" MaxLength="11" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="website" Type="varchar" MaxLength="1000" />
+          <Property Name="avatar" Type="nvarchar(max)" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryID" Type="int" />
+          <Property Name="producerID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" />
+          <Property Name="avatar" Type="nvarchar(max)" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MetaTitle" Type="nvarchar" MaxLength="60" />
+          <Property Name="MetaKeyWord" Type="nvarchar" MaxLength="255" />
+          <Property Name="MetaDescription" Type="nvarchar" MaxLength="160" />
+          <Property Name="slug" Type="varchar" MaxLength="300" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="description" Type="ntext" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="phone" Type="varchar" MaxLength="11" />
+          <Property Name="map" Type="ntext" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="500" />
+          <Property Name="video" Type="ntext" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="ISDELETE" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="VietYWineModelStoreContainer">
+          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producer" EntityType="Self.Producer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDetail" EntityType="Self.ProductDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VietYWineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTitle" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="slug" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="Byte" />
+          <Property Name="birthday" Type="DateTime" Precision="0" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="hobbies" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="passWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="isAdministrator" Type="Byte" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="Byte" />
+          <Property Name="summaryContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="mainContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTitle" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="slug" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Producer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryID" Type="Int32" />
+          <Property Name="producerID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MetaTitle" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="slug" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="VietYWineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Producers" EntityType="Self.Producer" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+          <EntitySet Name="Restaurants" EntityType="VietYWineModel.Restaurant" />
+          <EntitySet Name="Videos" EntityType="VietYWineModel.Video" />
+        </EntityContainer>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="map" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="video1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="ISDELETE" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VietYWineModelStoreContainer" CdmEntityContainer="VietYWineEntities">
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="VietYWineModel.About">
+              <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="VietYWineModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyWord" ColumnName="MetaKeyWord" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="VietYWineModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="hobbies" ColumnName="hobbies" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="passWord" ColumnName="passWord" />
+                <ScalarProperty Name="isAdministrator" ColumnName="isAdministrator" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="VietYWineModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="summaryContent" ColumnName="summaryContent" />
+                <ScalarProperty Name="mainContent" ColumnName="mainContent" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyWord" ColumnName="MetaKeyWord" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producers">
+            <EntityTypeMapping TypeName="VietYWineModel.Producer">
+              <MappingFragment StoreEntitySet="Producer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="VietYWineModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="producerID" ColumnName="producerID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="MetaKeyWord" ColumnName="MetaKeyWord" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDetails">
+            <EntityTypeMapping TypeName="VietYWineModel.ProductDetail">
+              <MappingFragment StoreEntitySet="ProductDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="VietYWineModel.Restaurant">
+              <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="map" ColumnName="map" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="VietYWineModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="video1" ColumnName="video" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
